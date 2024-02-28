@@ -1,0 +1,17 @@
+{% extends "layout.html" %} <!-- inherits the layout.html template -->
+{% block content %} <!-- This is a block that will be used to add content to the layout.html template -->
+  <h1>Events:</h1>
+    {% for post in posts %} <!-- This a a loop that will iterate through all the posts in the database and print out the tile, author, date and content define in posts variable in flaskblog.py -->
+      <article class="media content-section"> <!-- This is the bootstrap code that will make the blog posts look nice -->
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}"> <!-- This is the code that will display the author's profile picture -->
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author.username }}</a> <!-- This is the code that will display the author's username -->
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small> <!-- This is the code that will display the date in the format of year-month-day -->
+            </div>
+            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id)}}">{{ post.title }}</a></h2> <!-- This is the code that will display the title of the post and link to the post -->
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
