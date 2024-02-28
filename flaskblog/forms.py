@@ -57,3 +57,6 @@ class PostForm(FlaskForm): #This class will define our post form, it imports fro
     content = TextAreaField('Description', validators=[DataRequired()]) #creates a content field in the form that requires data
     submit = SubmitField('Post') #creates a submit field in the form that is a submit button
 
+
+
+#noah's test comment
