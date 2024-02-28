@@ -35,3 +35,5 @@ class Post(db.Model): # This class will define our post table
 
     def __repr__(self): 
         return f"Post('{self.title}', '{self.date_posted}')"
+    
+    

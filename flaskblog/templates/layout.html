@@ -17,24 +17,21 @@
 <body> 
     <!--The below code (From header to header) creates a navigation bar with bootstrap classes - It also resizes the web page should it go to a smaller screen-->
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-orange">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
           <div class="container">
-            <a class="navbar-brand mr-4" href="/">Tracker</a>
+            <a class="navbar-brand mr-4" href="/">Recruiter</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{{url_for('home')}}">Home</a>
-                {% if current_user.is_authenticated %}
-                  <a class="nav-item nav-link" href="{{ url_for('user_service_hours', user_id=current_user.id) }}">Service Hours</a>
-                {% endif %}
+                
 
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
                 {% if current_user.is_authenticated %} <!-- This is the code that will display the logout button if the user is logged in, and the login and register buttons if the user is not logged in -->
-                  <a class="nav-item nav-link" href="{{url_for('new_post')}}">New Event</a> <!-- display the account button if the user is logged in -->
                   <a class="nav-item nav-link" href="{{url_for('account')}}">Account</a> <!-- display the account button if the user is logged in -->
                   <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a> <!-- display the logout button if the user is logged in -->
                 {% else %}
@@ -63,10 +60,6 @@
             {% block content %}{% endblock %}
           </div>
           <div class="col-md-4">
-            <div class="content-section">
-              <h3>Welcome!</h3> <!-- Big Welcome message -->
-              <p class='text-muted'>This application is designed to record service hours for various club events at school. It allows for easy tracking and management of participation, ensuring that all members' contributions are acknowledged.</p>
-            </div>
           </div>          
         </div>
       </main>
