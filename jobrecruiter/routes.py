@@ -50,3 +50,41 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 
+
+@app.route("/JobApplicantPage")
+def JobApplicantPage():
+    return render_template('JobApplicantPage.html')
+
+@app.route("/JobApplication")
+def JobApplication():
+    return render_template('JobApplication.html')
+
+@app.route("/ApplicationInfo")
+def ApplicationInfo():
+    return render_template('ApplicationInfo.html')
+
+@app.route("/Essay")
+def Essay():
+    return render_template('Essay.html')
+
+@app.route("/WorkHistory")
+def WorkHistory():
+    return render_template('WorkHistory.html')
+
+@app.route("/Education")
+def Education():
+    return render_template('Education.html')
+
+@app.route("/ContactInfo")
+def ContactInfo():
+    return render_template('ContactInfo.html')
+
+@app.route("/AdditionalInfo")
+def AdditionalInfo():
+    return render_template('AdditionalInfo.html')
+
+
+
+    
+
+
