@@ -1,0 +1,64 @@
+<!-- this extends the base.html template and then creates the html page for the my resume form in forms.py-->
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Update Resume</legend>
+                <div class="form-group">
+                    {{form.work_history.label(class="form-control-label")}}
+
+                    {% if form.work_history.errors %} <!--if there are errors in the work_history field, display them-->
+                        {{form.work_history(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.work_history.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.work_history(class="form-control form-control-lg")}}
+                    {% endif %}
+
+                </div>
+
+
+                <div class="form-group">
+                    {{form.education.label(class="form-control-label")}}
+
+                    {% if form.education.errors %} <!--if there are errors in the education field, display them-->
+                        {{form.education(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.education.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.education(class="form-control form-control-lg")}}
+                    {% endif %}
+
+                </div>
+
+                <div class="form-group">
+                    {{form.contact_info.label(class="form-control-label")}}
+
+                    {% if form.contact_info.errors %} <!--if there are errors in the contact_info field, display them-->
+                        {{form.contact_info(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.contact_info.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{form.contact_info(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class="btn btn-outline-info")}}<!--submit button - btn-outline-info is a bluish bootstrap styled button-->
+            </div>
+        </form>
+    <div>
+{% endblock content %}
+

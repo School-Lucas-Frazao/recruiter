@@ -1,0 +1,16 @@
+<!-- this extends the base.html template and then the unique info is in the block content-->
+{% extends "base.html" %}
+{% block content %}
+    <h1>My Applications:</h1> <!-- Added big title -->
+    {% for application in applications %} <!-- The following loop displays the applications in a nice formated manner with white rectangular borders -->
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <small class="text-muted">{{ application.date_posted.strftime('%Y-%m-%d') }}</small>
+          </div>
+          <h2><a class="article-title" href="{{url_for('application', application_id=application.id)}}">{{ application.title }}</a></h2>
+          <p class="article-content">{{ application.content }}</p>
+        </div>
+    </article>
+    {% endfor %}
+{% endblock content %}
